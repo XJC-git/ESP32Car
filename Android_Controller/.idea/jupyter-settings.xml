@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JupyterPersistentConnectionParameters">
+    <option name="knownRemoteServers">
+      <list>
+        <JupyterConnectionParameters>
+          <option name="authType" value="notebook" />
+          <option name="token" value="baaf73c7edcdd11cb0698aa886d66b69bb09d8a99856a0d6" />
+          <option name="urlString" value="http://127.0.0.1:8888/" />
+          <authParams2>
+            <map>
+              <entry key="token" value="baaf73c7edcdd11cb0698aa886d66b69bb09d8a99856a0d6" />
+            </map>
+          </authParams2>
+        </JupyterConnectionParameters>
+        <JupyterConnectionParameters>
+          <option name="authType" value="notebook" />
+          <option name="token" value="de764c00862691bde121769712e6c171c6573501b1e957a3" />
+          <option name="urlString" value="http://127.0.0.1:8889/" />
+          <authParams2>
+            <map>
+              <entry key="token" value="de764c00862691bde121769712e6c171c6573501b1e957a3" />
+            </map>
+          </authParams2>
+        </JupyterConnectionParameters>
+        <JupyterConnectionParameters>
+          <option name="authType" value="notebook" />
+          <option name="token" value="acec4124ffa048be23c721bad6d53b4ca43b7f852b4c0881" />
+          <option name="urlString" value="http://hk.nuxjc.com:48889/" />
+          <authParams2>
+            <map>
+              <entry key="token" value="acec4124ffa048be23c721bad6d53b4ca43b7f852b4c0881" />
+            </map>
+          </authParams2>
+        </JupyterConnectionParameters>
+        <JupyterConnectionParameters>
+          <option name="authType" value="notebook" />
+          <option name="token" value="de764c00862691bde121769712e6c171c6573501b1e957a3" />
+          <option name="urlString" value="http://localhost:8889/" />
+          <authParams2>
+            <map>
+              <entry key="token" value="de764c00862691bde121769712e6c171c6573501b1e957a3" />
+            </map>
+          </authParams2>
+        </JupyterConnectionParameters>
+      </list>
+    </option>
+    <option name="moduleParameters">
+      <map>
+        <entry key="$PROJECT_DIR$/../../Assignment3/.idea/Assignment3.iml">
+          <value>
+            <JupyterConnectionParameters>
+              <option name="authType" value="notebook" />
+              <option name="token" value="acec4124ffa048be23c721bad6d53b4ca43b7f852b4c0881" />
+              <option name="urlString" value="http://hk.nuxjc.com:48889/" />
+              <authParams2>
+                <map>
+                  <entry key="token" value="acec4124ffa048be23c721bad6d53b4ca43b7f852b4c0881" />
+                </map>
+              </authParams2>
+            </JupyterConnectionParameters>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../proj2/.idea/proj2.iml">
+          <value>
+            <JupyterConnectionParameters>
+              <option name="authType" value="notebook" />
+              <option name="token" value="de764c00862691bde121769712e6c171c6573501b1e957a3" />
+              <option name="urlString" value="http://127.0.0.1:8889/" />
+              <authParams2>
+                <map>
+                  <entry key="token" value="de764c00862691bde121769712e6c171c6573501b1e957a3" />
+                </map>
+              </authParams2>
+            </JupyterConnectionParameters>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Downloads/Assignment4/Assignment-4/.idea/Assignment-4.iml">
+          <value>
+            <JupyterConnectionParameters>
+              <option name="authType" value="notebook" />
+              <option name="token" value="baaf73c7edcdd11cb0698aa886d66b69bb09d8a99856a0d6" />
+              <option name="urlString" value="http://127.0.0.1:8888/" />
+              <authParams2>
+                <map>
+                  <entry key="token" value="baaf73c7edcdd11cb0698aa886d66b69bb09d8a99856a0d6" />
+                </map>
+              </authParams2>
+            </JupyterConnectionParameters>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
