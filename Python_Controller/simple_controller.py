@@ -34,6 +34,10 @@ if __name__ == "__main__":
 								socket.sendto('adjust-r'.encode(), (ip, port))
 							case pynput.keyboard.Key.left:
 								socket.sendto('adjust-l'.encode(), (ip, port))
+							case pynput.keyboard.Key.space:
+								if key_state.get(pynput.keyboard.Key.space) is None:
+									key_state[pynput.keyboard.Key.space]=1
+									socket.sendto('brake'.encode(), (ip, port))
 						continue
 					if key_state.get(key_event.key.char) is not None:
 						continue
@@ -51,6 +55,10 @@ if __name__ == "__main__":
 								socket.sendto('{}-0.065'.format(key_event.key.char).encode(), (ip, port))
 				elif isinstance(key_event, pynput.keyboard.Events.Release):  # 松开按键
 					if not hasattr(key_event.key, 'char'):
+						match key_event.key:
+							case pynput.keyboard.Key.space:
+								socket.sendto('brake-release'.encode(), (ip, port))
+								del key_state[pynput.keyboard.Key.space]
 						continue
 					if key_state.get(key_event.key.char) is not None:
 						del key_state[key_event.key.char]
