@@ -12,5 +12,5 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "esp32controller"
+rootProject.name = "ESP32"
 include ':app'
