@@ -28,6 +28,13 @@ if __name__ == "__main__":
 			for i in event:
 				key_event = i
 				if isinstance(key_event, pynput.keyboard.Events.Press):  # 按下按键
+					if not hasattr(key_event.key,'char'):
+						match key_event.key:
+							case pynput.keyboard.Key.right:
+								socket.sendto('adjust-r'.encode(), (ip, port))
+							case pynput.keyboard.Key.left:
+								socket.sendto('adjust-l'.encode(), (ip, port))
+						continue
 					if key_state.get(key_event.key.char) is not None:
 						continue
 					else:
@@ -43,6 +50,8 @@ if __name__ == "__main__":
 							case 'd':
 								socket.sendto('{}-0.065'.format(key_event.key.char).encode(), (ip, port))
 				elif isinstance(key_event, pynput.keyboard.Events.Release):  # 松开按键
+					if not hasattr(key_event.key, 'char'):
+						continue
 					if key_state.get(key_event.key.char) is not None:
 						del key_state[key_event.key.char]
 						logger.key_release(key_event.key)
