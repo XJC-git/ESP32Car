@@ -42,7 +42,7 @@ while True:
             brake_led.value(0)
             braking=False
     
-    if braking and (msg_split[0]=='w'||msg_split[0]=='s'):
+    if braking and (msg_split[0]=='w' or msg_split[0]=='s'):
         continue
     if msg_split[0]=='w':
         if msg_split[1]=='stop':
@@ -65,3 +65,4 @@ while True:
         else:
             middle_angle=middle_angle+0.001
     
+
