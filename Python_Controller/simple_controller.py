@@ -1,12 +1,54 @@
-import keyword
+import threading
+import time
+import socket
+import pynput
 
-import keyboard as keyboard
+from Python_Controller.event_logger import EventLogger
+
+key_state = {}
+logger = EventLogger('controller')
+
+ip = '192.168.31.36'
+port = 48975
 
 
-def abc(x):
-	print(x)
+def heartbeat_handler(socket):
+	global key_state
+	while True:
+		socket.sendto('heartbeat'.encode(), (ip, port))
+		time.sleep(1)
 
 
 if __name__ == "__main__":
-	keyboard.hook(abc)
-	keyboard.wait()
+	socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+
+	threading.Thread(target=heartbeat_handler, args=(socket,)).start()
+	while True:
+		with pynput.keyboard.Events() as event:
+			for i in event:
+				key_event = i
+				if isinstance(key_event, pynput.keyboard.Events.Press):  # 按下按键
+					if key_state.get(key_event.key.char) is not None:
+						continue
+					else:
+						key_state[key_event.key.char] = 1
+						logger.key_press(key_event.key)
+						match key_event.key.char:
+							case 'w':
+								socket.sendto('{}-0.6'.format(key_event.key.char).encode(), (ip, port))
+							case 's':
+								socket.sendto('{}-0.3'.format(key_event.key.char).encode(), (ip, port))
+							case 'a':
+								socket.sendto('{}-0.085'.format(key_event.key.char).encode(), (ip, port))
+							case 'd':
+								socket.sendto('{}-0.065'.format(key_event.key.char).encode(), (ip, port))
+				elif isinstance(key_event, pynput.keyboard.Events.Release):  # 松开按键
+					if key_state.get(key_event.key.char) is not None:
+						del key_state[key_event.key.char]
+						logger.key_release(key_event.key)
+						socket.sendto('{}-stop'.format(key_event.key.char).encode(), (ip, port))
+					else:
+						pass
+				break
+
+
